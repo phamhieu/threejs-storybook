@@ -5,6 +5,7 @@ import { Box, BoxProps } from '../components/Box'
 
 export default {
   title: 'Basic/Box',
+  component: Box,
   argTypes: {
     color: { defaultValue: 'orange', control: 'color' },
     hoverColor: { defaultValue: 'hotpink', control: 'color' },
@@ -43,13 +44,21 @@ const MultiTemplate: Story<MultiBoxProps> = (args) => {
       <ambientLight />
       <pointLight position={[10, 10, 10]} />
       {args.items.map((item, index) => (
-        <Box key={`box-${index}`} {...item} {...args} />
+        <Box key={`box-${index}`} {...item} />
       ))}
     </Canvas>
   )
 }
 
 export const Mutiples = MultiTemplate.bind({})
+Mutiples.argTypes = {
+  color: { table: { disable: true } },
+  hoverColor: { table: { disable: true } },
+  position: { table: { disable: true } },
+  size: { table: { disable: true } },
+  rotationSpeed: { table: { disable: true } },
+  activeScale: { table: { disable: true } },
+}
 Mutiples.args = {
   items: [
     {

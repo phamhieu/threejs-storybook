@@ -4,13 +4,25 @@ import { Mesh } from 'three'
 
 export interface BoxProps {
   position: Vector3
+  /**
+   * How large should the box be?
+   */
   size?: number
+  /**
+   * What color to use
+   */
   color?: string
+  /**
+   * What color to use on hover
+   */
   hoverColor?: string
   rotationSpeed?: number
   activeScale?: Vector3
 }
 
+/**
+ * A BoxGeometry object with basic MeshBasicMaterial color
+ */
 export function Box(props: BoxProps) {
   const {
     position,
